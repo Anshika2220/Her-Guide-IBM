@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { min-height: 100%; }
+body {
+  @apply bg-ink-950 font-sans text-zinc-300 antialiased;
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(139, 92, 246, 0.14), transparent 60%),
+    radial-gradient(700px 400px at -10% 10%, rgba(244, 114, 182, 0.07), transparent 60%);
+  background-attachment: fixed;
+}
+::selection { background: rgba(167, 139, 250, 0.35); }
+
+@layer components {
+  .card { @apply rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm; }
+  .card-hover { @apply transition hover:border-violet-400/30 hover:bg-white/[0.05]; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-violet-500 text-white hover:bg-violet-400 shadow-glow; }
+  .btn-ghost { @apply btn border border-white/10 text-zinc-200 hover:bg-white/5; }
+  .btn-danger { @apply btn border border-rose-400/30 bg-rose-500/10 text-rose-200 hover:bg-rose-500/20; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .input { @apply w-full rounded-xl border border-white/10 bg-ink-900 px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 transition focus:border-violet-400/60 focus:outline-none focus:ring-1 focus:ring-violet-400/40; }
+  .label { @apply mb-1.5 block text-xs font-medium text-zinc-400; }
+  .badge { @apply inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs text-zinc-300; }
+  .h-page { @apply text-2xl font-semibold tracking-tight text-white md:text-3xl; }
+  .h-card { @apply text-base font-semibold text-white; }
+  .meta { @apply text-xs text-zinc-500; }
+  .skeleton { @apply animate-pulse rounded-xl bg-white/[0.06]; }
+  .gradient-text { @apply bg-gradient-to-r from-violet-300 via-fuchsia-200 to-pink-300 bg-clip-text text-transparent; }
+}
